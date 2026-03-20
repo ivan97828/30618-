@@ -1,0 +1,53 @@
+    h1{
+	color: #6e4106;
+	text-align: center ;
+	font-size: 250%;
+    
+}
+h2{
+	color: #c07a10;
+	border: #d1820c 5px dotted;
+	border-left: #523202 10px solid;
+	padding: 5px 20px;
+	margin-bottom: 0;
+}
+
+body{
+	background-color: #faae3c;
+    background-image: url("img/Gudetama_from_Sanrio.jpg");
+	background-repeat: repeat-x;
+    background-position: top center;
+}
+
+#wrap{
+	width: 800px;
+	margin: 40px auto;
+	padding: 40px 80px;
+	border: #6e4208 5px solid;
+	background-color: #ebe4d3;
+}
+
+ /* 對 h1 段落的設定 */
+h1 {
+    color: #642902; /* 深藍灰色文字 */
+    font-family: "Microsoft JhengHei", sans-serif; /* 字體 */
+    font-size: 55px; /* 字體大小 */
+    text-align: center; /* 文字置中 */
+    background-color: #ecf0f1; /* 淺灰色背景 */
+    padding: 20px; /* 內邊距 20px */
+    border-bottom: 3px solid #ac4e10; /* 底部加一條藍色實線 */
+    letter-spacing: 5px; /* 字元間距 */
+    text-shadow: 5px 5px 2px #bdc3c7; /* 加上淡淡的文字陰影 */
+  }
+  /* 對 p 段落的設定 */
+  p {
+    color: #303a44; /* 較深的灰色文字 */
+    font-size: 20px; /* 字體大小 */
+    line-height: 1.6; /* 1.6倍的行高，讓閱讀更舒適 */
+    width: 100%; /* 寬度為外層容器的 80% */
+    margin: 20px auto; /* 上下外邊距 20px，左右自動 (實現置中效果) */
+    padding: 10px; /* 內邊距 15px */
+    border: 5px dashed #4b4f50; /* 1px 灰色虛線邊框 */
+    border-radius: 8px; /* 8px 的圓角 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 加上淡淡的區塊陰影 */
+  }
