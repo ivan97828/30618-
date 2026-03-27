@@ -1,22 +1,51 @@
     h1{
 	color: #6e4106;
 	text-align: center ;
-	font-size: 250%;
-    
-}
+	font-size: 250%;}
+    header nav ul {
+        display: flex;
+        justify-content: center;
+        border-top: 2px solid #7c5d48;
+        border-bottom: 2px solid #7c5d48;
+        background-color: rgba(255,255,255,0.42);
+        padding: 12px 0px 10px;
+        }
+    header nav ul li {
+        margin: 0 20px;
+        }
+    header nav ul li a {
+        font-size: 22px;
+        font-weight: bold;
+        color: #7c5d48;
+        }
+    header nav ul li a:hover {
+        text-decoration: underline double;
+        }
+
+
 h2{
 	color: #c07a10;
 	border: #d1820c 5px dotted;
 	border-left: #523202 10px solid;
 	padding: 5px 20px;
-	margin-bottom: 0;
-}
+	margin-bottom: 0;}
 
 body{
-	background-color: #faae3c;
-    background-image: url("img/Gudetama_from_Sanrio.jpg");
-	background-repeat: repeat-x;
-    background-position: top center;
+    /* 背景：第一層為原本的圖（保持不變），第二層為漸層色（位於圖下方） */
+    /* 圖層順序：圖片在上（保持原樣），漸層在下（上深下淺） */
+    background-image: url("img/Gudetama_from_Sanrio.jpg"), linear-gradient(180deg, #faaa33 -10%, #fff7ed 200%);
+    /* 圖片只在水平方向重複（和原本行為相同），漸層不重複 */
+    background-repeat: repeat-x, no-repeat;
+    /* 圖片置頂置中，漸層覆蓋整個背景 */
+    background-position: top center, center center;
+    background-size: auto, cover;
+    /* 主要排版字體 */
+    font-family: 'Noto Sans TC', "LXGW WenKai TC", "Microsoft JhengHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2b2b2b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #wrap{
@@ -24,24 +53,54 @@ body{
 	margin: 40px auto;
 	padding: 40px 80px;
 	border: #6e4208 5px solid;
-	background-color: #ebe4d3;
+	background-color: #ebe4d3;}
+
+/* 更顯眼的主標題：響應式大小、漸層字色、圓角背景與裝飾線 */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 1.02;
+    text-align: center;
+    margin: 0 0 18px;
+    padding: 18px 22px;
+    background-color: #ecf0f1;
+    border-radius: 12px;
+    /* 漸層文字（使用透明字色並裁切背景顯示） */
+    color: transparent;
+    background-image: linear-gradient(90deg, #b45309, #f59e0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 8px 22px rgba(181,81,11,0.12);
+    position: relative;
+    transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
- /* 對 h1 段落的設定 */
-h1 {
-    color: #642902; /* 深藍灰色文字 */
-    font-family: "Microsoft JhengHei", sans-serif; /* 字體 */
-    font-size: 55px; /* 字體大小 */
-    text-align: center; /* 文字置中 */
-    background-color: #ecf0f1; /* 淺灰色背景 */
-    padding: 20px; /* 內邊距 20px */
-    border-bottom: 3px solid #ac4e10; /* 底部加一條藍色實線 */
-    letter-spacing: 5px; /* 字元間距 */
-    text-shadow: 5px 5px 2px #bdc3c7; /* 加上淡淡的文字陰影 */
-  }
-  /* 對 p 段落的設定 */
-  p {
-    color: #303a44; /* 較深的灰色文字 */
+/* 裝飾用的底線（位於標題下方） */
+h1::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 8px;
+    margin: 12px auto 0;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f97316, #fbbf24);
+    box-shadow: 0 6px 14px rgba(249,115,22,0.12);
+}
+
+h1:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+}
+
+p { font-family: "LXGW WenKai TC", cursive;
+    font-weight: 400;
+    font-style: normal;}
+
+
+    /* 對 p 段落的設定 */
+p { color: #303a44; /* 較深的灰色文字 */
     font-size: 20px; /* 字體大小 */
     line-height: 1.6; /* 1.6倍的行高，讓閱讀更舒適 */
     width: 100%; /* 寬度為外層容器的 80% */
@@ -49,5 +108,59 @@ h1 {
     padding: 10px; /* 內邊距 15px */
     border: 5px dashed #4b4f50; /* 1px 灰色虛線邊框 */
     border-radius: 8px; /* 8px 的圓角 */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 加上淡淡的區塊陰影 */
-  }
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 加上淡淡的區塊陰影 */}
+
+.A{ margin:20px ;
+    padding:3px 50px 20px 20px;
+    background-color:#ffe2a2;}
+
+/* 浮動回到最上方按鈕（圓形、漸層、陰影、懸停效果） */
+#top {
+    position: fixed;
+    bottom: 24px;
+    right: 28px;
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #f97316 0%, #fb923c 100%);
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    z-index: 9999;
+    transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+#top:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.22);
+}
+
+/* 小螢幕微調 */
+@media (max-width: 480px) {
+    #top {
+        right: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+/* 圓角化圖片：讓所有 <img> 元素有圓角、響應式尺寸，並加上輕微懸停效果 */
+img {
+    border-radius: 16px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
