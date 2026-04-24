@@ -3,35 +3,46 @@ const guessField = document.querySelector(".guessField");
 const result = document.querySelector(".result");
 const count = document.querySelector(".count");
 
+let answer = Math.floor(Math.random() * 100) + 1;
+console.log("答案:", answer);
 
-let answer = Math.floor( Math.random()*100)+1;
-console.log("隨機數字是否會介於0~100：", answer);
+let countNum = 0;
 
-let countNum =0;   //廣域變數
 function checkGuess() {
+    const userGuess = Number(guessField.value);
+
+    // 防呆
+    if (!userGuess || userGuess < 1 || userGuess > 100) {
+        result.textContent = "請輸入 1 到 100 的數字！";
+        return;
+    }
+
     countNum++;
-    count.textContent = "猜測次數:"+countNum;
-    //guessField.focus();       //游標焦點預設在輸入欄位裡
+    count.textContent = "猜測次數: " + countNum;
 
-    const userGuess = Number(guessField.value);  //取得欄位值，並轉為數字
-    if  (  answer === userguess ) {
-        result.textContent = "猜測結果：Congratulations!" ;
+    if (answer === userGuess) {
+        result.textContent = "🎉 猜對了！";
+        endGame();
+    } else if (answer < userGuess) {
+        result.textContent = "📉 太大了！";
+    } else {
+        result.textContent = "📈 太小了！";
     }
-    else if (answer  < userguess ) {
-        result.textContent = "猜測結果：數字太小!" ;
+
+    // 次數限制
+    if (countNum >= 10 && answer !== userGuess) {
+        result.textContent = "❌ 遊戲結束！答案是 " + answer;
+        endGame();
     }
-    else if (answer  >  userguess ) {
-        result.textContent = "猜測結果：數字太大!";
-    }
+
+    guessField.value = "";
+    guessField.focus();
 }
 
-function setGameOver() {
-        guessField.disabled = true; //停止輸入功能
-        guessSubmit.disabled = true;    //停止按鈕功能
-        result.textContent += "遊戲結束";
-        result.style.backgroundColor="red";
-        alert("遊戲結束");
-        setGameOver(); //放到猜對===的欄位
-}
-guessSubmit.addEventListener("click", checkGuess);   //當按鈕被點擊，執行函式
 
+function endGame() {
+    guessField.disabled = true;
+    guessSubmit.disabled = true;
+}
+
+guessSubmit.addEventListener("click", checkGuess);
